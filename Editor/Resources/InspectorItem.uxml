@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="height: auto; justify-content: space-between; flex-direction: row; margin-bottom: 3px; background-color: rgb(65, 65, 65); max-height: none; min-height: 24px; align-items: stretch; margin-top: 0;">
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="FieldName" style="-unity-text-align: middle-left; -unity-font-style: bold; width: 25%; margin-left: 5px; overflow: hidden;" />
+        <uie:PropertyField name="Field" style="width: 70%; justify-content: center; flex-wrap: wrap;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,35 @@
+:hover > #Root {
+    border-left-color: rgb(94, 229, 255);
+    border-right-color: rgb(94, 229, 255);
+    border-top-color: rgb(94, 229, 255);
+    border-bottom-color: rgb(94, 229, 255);
+    border-left-width: 0.5px;
+    border-right-width: 0.5px;
+    border-top-width: 0.5px;
+    border-bottom-width: 0.5px;
+    background-color: rgb(70, 70, 70);
+}
+
+.selected {
+    flex-grow: 0;
+    width: auto;
+    height: 24px;
+    justify-content: space-between;
+    background-color: rgb(29, 29, 29);
+    border-bottom-color: rgb(99, 99, 99);
+    border-bottom-width: 2px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.normal {
+    flex-grow: 0;
+    width: auto;
+    height: 24px;
+    justify-content: space-between;
+    background-color: rgb(48, 48, 48);
+    border-bottom-color: rgb(99, 99, 99);
+    border-bottom-width: 2px;
+    flex-direction: row;
+    align-items: center;
+}

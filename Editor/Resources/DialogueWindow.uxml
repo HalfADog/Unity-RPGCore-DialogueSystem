@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="flex-grow: 1; width: 256px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; justify-content: space-between; align-items: stretch; height: 216px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+        <ui:Label text="Title" display-tooltip-when-elided="true" name="DialogueTitle" style="-unity-text-align: middle-center; -unity-font-style: bold; font-size: 16px; padding-top: 0; height: 20%; background-color: rgb(62, 109, 154); flex-shrink: 1; border-bottom-width: 2px; border-bottom-color: rgb(255, 255, 255); color: rgb(255, 255, 255); border-top-left-radius: 10px; border-top-right-radius: 10px;" />
+        <ui:VisualElement name="ContentContainer" style="height: 60%; align-items: center; justify-content: space-between; background-color: rgb(98, 132, 143);">
+            <ui:VisualElement name="Message" style="flex-grow: 1; visibility: hidden; display: none; align-items: center; justify-content: center; -unity-font-style: bold; font-size: 14px; -unity-text-align: middle-center; max-width: 224px; max-height: none; flex-wrap: wrap;">
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="Message" style="flex-wrap: wrap; white-space: normal; color: rgb(255, 255, 255);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CreateAsset" style="flex-grow: 1; visibility: hidden; justify-content: space-around; display: none; padding-bottom: 8px;">
+                <ui:VisualElement name="AssetName" style="flex-direction: column; align-items: center;">
+                    <ui:Label text="Name" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-font-style: bold;" />
+                    <ui:TextField picking-mode="Ignore" name="AssetNameField" is-delayed="false" style="width: 160px; background-color: rgb(0, 0, 0); height: 20px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="AssetDescription" style="flex-direction: column; align-items: center;">
+                    <ui:Label text="Description" display-tooltip-when-elided="true" style="-unity-font-style: bold; color: rgb(255, 255, 255);" />
+                    <ui:TextField picking-mode="Ignore" name="AssetDescriptionField" multiline="true" is-delayed="true" style="width: 160px; height: 48px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; background-color: rgb(62, 109, 154); flex-direction: row; justify-content: space-around; align-items: center; border-top-color: rgb(255, 255, 255); border-top-width: 2px; color: rgb(255, 255, 255); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+            <ui:Button text="Cancel" display-tooltip-when-elided="true" name="Cancel" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; -unity-font-style: bold; width: 64px; height: 32px; background-color: rgb(77, 136, 192); flex-shrink: 1; flex-grow: 0;" />
+            <ui:Button text="Ok" display-tooltip-when-elided="true" name="OK" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; -unity-font-style: bold; width: 64px; height: 32px; background-color: rgb(55, 122, 192); flex-shrink: 1; flex-grow: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

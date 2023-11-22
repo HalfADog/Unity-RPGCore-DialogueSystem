@@ -1,0 +1,143 @@
+.output-port-label {
+    flex-wrap: nowrap;
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+    max-width: 128px;
+    white-space: normal;
+}
+
+.start-node #title {
+    background-color: rgba(32, 135, 51, 0.78);
+}
+
+.start-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.start-node #contents {
+    background-color: rgba(32, 80, 51, 0.78);
+}
+
+.start-node #node-border #contents #top #output .port {
+    --port-color: rgb(32, 135, 51);
+}
+
+.end-node #title {
+    background-color: rgba(135, 32, 35, 0.78);
+}
+
+.end-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.end-node #contents {
+    background-color: rgba(80, 32, 35, 0.78);
+}
+
+.end-node #node-border #contents #top #output .port {
+    --port-color: rgb(135, 32, 35);
+}
+
+.end-node #node-border #contents #top #input .port {
+    --port-color: rgb(135, 32, 35);
+}
+
+.sentence-node #title {
+    background-color: rgba(132, 135, 32, 0.78);
+}
+
+.sentence-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.sentence-node #contents {
+    background-color: rgba(78, 79, 42, 0.78);
+}
+
+.sentence-node #node-border #contents #top #output .port {
+    --port-color: rgb(132, 135, 32);
+}
+
+.sentence-node #node-border #contents #top #input .port {
+    --port-color: rgb(132, 135, 32);
+}
+
+.choice-node #title {
+    background-color: rgba(32, 70, 135, 0.78);
+}
+
+.choice-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.choice-node #contents {
+    background-color: rgba(43, 70, 81, 0.78);
+}
+
+.choice-node #node-border #contents #top #output .port {
+    --port-color: rgb(32, 70, 135);
+}
+
+.choice-node #node-border #contents #top #input .port {
+    --port-color: rgb(32, 70, 135);
+}
+
+.action-node #title {
+    background-color: rgba(135, 32, 124, 0.78);
+}
+
+.action-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.action-node #contents {
+    background-color: rgba(72, 37, 68, 0.78);
+}
+
+.action-node #node-border #contents #top #output .port {
+    --port-color: rgb(135, 32, 124);
+}
+
+.action-node #node-border #contents #top #input .port {
+    --port-color: rgb(135, 32, 124);
+}
+
+.random-node #title {
+    background-color: rgba(58, 32, 135, 0.78);
+}
+
+.random-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.random-node #contents {
+    background-color: rgba(52, 42, 84, 0.78);
+}
+
+.random-node #node-border #contents #top #output .port {
+    --port-color: rgb(58, 32, 135);
+}
+
+.random-node #node-border #contents #top #input .port {
+    --port-color: rgb(58, 32, 135);
+}
+
+.flow-node #title {
+    background-color: rgba(32, 133, 135, 0.78);
+}
+
+.flow-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.flow-node #contents {
+    background-color: rgba(41, 68, 79, 0.78);
+}
+
+.flow-node #node-border #contents #top #output .port {
+    --port-color: rgb(32, 133, 135);
+}
+
+.flow-node #node-border #contents #top #input .port {
+    --port-color: rgb(32, 133, 135);
+}

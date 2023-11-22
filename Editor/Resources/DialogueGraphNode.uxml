@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/DialogueSystem/Editor/UI/DialogueGraphNode.uss?fileID=7433441132597879392&amp;guid=ae26ddb45ea806d4c8cd4b5a91c1a607&amp;type=3#DialogueGraphNode" />
+    <ui:VisualElement name="node-state" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="node-border" style="min-height: 64px; background-color: rgb(46, 46, 46); min-width: 100px;">
+        <ui:VisualElement name="title" style="height: 26px; justify-content: center;">
+            <ui:Label text="Node Title" display-tooltip-when-elided="true" name="title-label" style="-unity-text-align: middle-center; -unity-font-style: bold; font-size: 14px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="divider-horizontal" style="width: auto; border-right-width: 0; flex-shrink: 1; flex-grow: 0; height: 0.1px; border-bottom-width: 1px; border-bottom-color: rgb(0, 0, 0);" />
+        <ui:VisualElement name="contents" style="flex-grow: 1; flex-shrink: 0; flex-direction: row; justify-content: center; -unity-font-style: normal;">
+            <ui:VisualElement name="top" style="flex-direction: row;">
+                <ui:VisualElement name="input" style="flex-direction: row; min-width: 40px; background-color: rgb(30, 30, 30);" />
+                <ui:VisualElement name="divider-vertical" style="width: 0.1px; border-right-width: 1px; border-right-color: rgb(0, 0, 0);" />
+                <ui:VisualElement name="information" style="min-height: auto; align-items: center; justify-content: center; display: flex; visibility: visible; min-width: 20px; background-color: rgb(30, 30, 30);">
+                    <ui:Label text="Label" display-tooltip-when-elided="true" name="sentence-label" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; display: none; visibility: hidden; flex-wrap: wrap;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="divider-vertical" style="width: 0.1px; border-right-width: 1px; border-right-color: rgb(0, 0, 0);" />
+                <ui:VisualElement name="output" style="flex-direction: column; justify-content: center; align-items: flex-end; -unity-font-style: bold; min-width: 40px; background-color: rgb(30, 30, 30);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; border-bottom-width: 1px;" />
+</ui:UXML>

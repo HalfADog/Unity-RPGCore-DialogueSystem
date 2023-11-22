@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Root" style="flex-grow: 1;">
+        <uie:Toolbar style="align-items: center; justify-content: flex-start;">
+            <ui:VisualElement name="ToolbarButtons" style="flex-direction: row; width: auto; align-items: center; justify-content: space-around;">
+                <uie:ToolbarButton text="Save" display-tooltip-when-elided="true" name="Save" tooltip="Save all unsaved assets" />
+                <uie:ToolbarButton text="Create" display-tooltip-when-elided="true" name="CreateGroup" enable-rich-text="false" tooltip="Create new dialogue group" />
+                <uie:ToolbarButton text="Open" display-tooltip-when-elided="true" name="Open" tooltip="Open exist asset" style="display: none; visibility: hidden;" />
+                <uie:ObjectField allow-scene-objects="false" name="OpenedGroup" style="width: 96px; min-width: auto; display: none; visibility: hidden;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 85%; align-items: center;">
+                <ui:Label display-tooltip-when-elided="true" name="EditInfomation" style="left: auto; -unity-font-style: bold; font-size: 13px;" />
+            </ui:VisualElement>
+        </uie:Toolbar>
+        <ui:VisualElement name="WorkSpace" style="flex-grow: 1;">
+            <TwoPaneSplitViewHorizontalExposed fixed-pane-initial-dimension="200">
+                <ui:VisualElement name="LeftPanel" style="flex-grow: 0; flex-shrink: 0; min-width: 200px; width: 100px;">
+                    <TwoPaneSplitViewVerticalExposed orientation="Vertical" fixed-pane-initial-dimension="300">
+                        <ui:VisualElement name="InspectorView" style="min-width: auto; flex-grow: 1; min-height: 100px;">
+                            <ui:Label text="Inspector" display-tooltip-when-elided="true" enable-rich-text="false" name="Title" style="-unity-font-style: bold; font-size: 14px; -unity-text-align: upper-center; background-color: rgb(70, 70, 70);" />
+                            <ui:ScrollView name="InspectorPanel" style="flex-grow: 1; min-height: auto;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="HierarchyView" style="min-width: auto; flex-shrink: 1; min-height: 100px;">
+                            <uie:Toolbar style="justify-content: space-between; background-color: rgb(70, 70, 70);">
+                                <ui:VisualElement style="align-items: center; justify-content: center; width: 85%;">
+                                    <ui:Label text="Hierarchy" display-tooltip-when-elided="false" name="Title" style="-unity-text-align: middle-center; -unity-font-style: bold; font-size: 14px; margin-left: 0;" />
+                                </ui:VisualElement>
+                                <uie:ToolbarButton text="+" display-tooltip-when-elided="true" name="CreateItem" enable-rich-text="false" tooltip="Create new item" style="align-items: stretch; -unity-font-style: bold; font-size: 20px; -unity-text-align: middle-center;" />
+                            </uie:Toolbar>
+                            <ui:ListView focusable="true" name="HierarchyPanel" style="flex-grow: 1;" />
+                        </ui:VisualElement>
+                    </TwoPaneSplitViewVerticalExposed>
+                </ui:VisualElement>
+                <ui:VisualElement name="RightPanel" style="flex-shrink: 1; min-width: 100px;">
+                    <ui:VisualElement name="GraphViewPanel" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </TwoPaneSplitViewHorizontalExposed>
+            <ui:VisualElement name="RemindPanel" style="position: absolute; height: 100%; width: 100%; flex-grow: 1; background-color: rgba(0, 0, 0, 0.39); visibility: hidden; display: flex;">
+                <ui:Label text="Please Open Or Create &#10;A Dialogue Group to Edit." display-tooltip-when-elided="true" name="RemindText" style="-unity-text-align: middle-center; -unity-font-style: bold; top: 45%; font-size: 29px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DialogueWindowPanel" style="position: absolute; left: auto; top: auto; right: auto; bottom: auto; flex-grow: 1; width: 100%; height: 100%; visibility: hidden; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.39); -unity-text-align: middle-left;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
