@@ -17,7 +17,7 @@
                     <TwoPaneSplitViewVerticalExposed orientation="Vertical" fixed-pane-initial-dimension="300">
                         <ui:VisualElement name="InspectorView" style="min-width: auto; flex-grow: 1; min-height: 100px;">
                             <ui:Label text="Inspector" display-tooltip-when-elided="true" enable-rich-text="false" name="Title" style="-unity-font-style: bold; font-size: 14px; -unity-text-align: upper-center; background-color: rgb(70, 70, 70);" />
-                            <ui:ScrollView name="InspectorPanel" style="flex-grow: 1; min-height: auto;" />
+                            <ui:ScrollView name="InspectorPanel" style="flex-grow: 1; min-height: auto; background-color: rgba(51, 51, 51, 255);" />
                         </ui:VisualElement>
                         <ui:VisualElement name="HierarchyView" style="min-width: auto; flex-shrink: 1; min-height: 100px;">
                             <uie:Toolbar style="justify-content: space-between; background-color: rgb(70, 70, 70);">
@@ -26,7 +26,7 @@
                                 </ui:VisualElement>
                                 <uie:ToolbarButton text="+" display-tooltip-when-elided="true" name="CreateItem" enable-rich-text="false" tooltip="Create new item" style="align-items: stretch; -unity-font-style: bold; font-size: 20px; -unity-text-align: middle-center;" />
                             </uie:Toolbar>
-                            <ui:ListView focusable="true" name="HierarchyPanel" style="flex-grow: 1;" />
+                            <ui:ListView focusable="true" name="HierarchyPanel" style="flex-grow: 1; background-color: rgba(51, 51, 51, 255);" />
                         </ui:VisualElement>
                     </TwoPaneSplitViewVerticalExposed>
                 </ui:VisualElement>
