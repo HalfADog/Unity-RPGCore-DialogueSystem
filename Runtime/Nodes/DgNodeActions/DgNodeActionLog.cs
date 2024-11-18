@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPGCore.Dialogue.Runtime
 {
-	[DialogueNode(Path = "Action/Log")]
+	[DialogueNode(Path = "Example/Action/Log")]
 	public class DgNodeActionLog : DgNodeActionBase
     {
         public string message;

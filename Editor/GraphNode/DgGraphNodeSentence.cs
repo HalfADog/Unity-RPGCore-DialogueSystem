@@ -19,8 +19,9 @@ namespace RPGCore.Dialogue.Editor
 			GeneratePort("", Direction.Output, false);
 			contentLabel = new Label();
 			contentLabel.name = "sentence-label";
-			outputContainer.Add(contentLabel);
-			outputContainer.style.flexDirection = FlexDirection.RowReverse;
+			//outputContainer.Add(contentLabel);
+			//outputContainer.style.flexDirection = FlexDirection.RowReverse;
+			contentContainer.Add(contentLabel);
 			contentLabel.AddToClassList("output-port-label");
 			UpdataNode();
 			AddToClassList("sentence-node");

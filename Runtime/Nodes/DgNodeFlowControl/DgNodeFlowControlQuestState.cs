@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPGCore.Dialogue.Runtime
 {
-    [DialogueNode(Path = "Flow Control/Quest State")]
+    [DialogueNode(Path = "Example/Flow Control/Quest State")]
     public class DgNodeFlowControlQuestState : DgNodeFlowControlBase
     {
         //Test

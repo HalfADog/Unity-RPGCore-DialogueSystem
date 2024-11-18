@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using RPGCore.Dialogue.Runtime;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ namespace RPGCore.Dialogue.Editor
 		public DialogueEditorGraphView(DialogueEditorWindow window)
 		{
 			this.editorWindow = window;
-			//AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Scripts/DialogueSystem/Editor/UI/DialogueGraphView.uss")
 			styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphView"));
 			SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
 			this.AddManipulator(new ContentDragger());
@@ -131,7 +131,6 @@ namespace RPGCore.Dialogue.Editor
 			}
 			//连接节点
 			var graphNodeList = nodes.Select(node => node as DialogueGraphNode).ToList();
-			//var dataNodeList = graphNodeList.Select(node=>node.nodeData).ToList();
 			foreach (var node in graphNodeList)
 			{
 				Port outputPort = null;
@@ -160,7 +159,8 @@ namespace RPGCore.Dialogue.Editor
 			if (editorWindow.CurrentOpenedGroupData == null) return;
 			//将移除的节点从资源中删除
 			List<DgNodeBase> nodesToRemove = new List<DgNodeBase>();
-			foreach (var node in editorWindow.CurrentOpenedGroupData.GetOpenedEditorItem().dgNodes)
+			DialogueItemDataSO itemData = editorWindow.CurrentOpenedGroupData.GetOpenedEditorItem();
+			foreach (var node in itemData.dgNodes)
 			{
 				if (!nodes.Select(node => (node as DialogueGraphNode).nodeData).Contains(node))
 				{
@@ -170,7 +170,22 @@ namespace RPGCore.Dialogue.Editor
 			foreach (var rnode in nodesToRemove)
 			{
 				DialogueEditorUtility.DeleteDialogueNodeData(rnode);
-				editorWindow.CurrentOpenedGroupData.GetOpenedEditorItem().dgNodes.Remove(rnode);
+				itemData.dgNodes.Remove(rnode);
+			}
+			nodesToRemove.Clear();
+			//删除所有的空引用
+			List<int> indexToRemove = new();
+			List<DgNodeBase> dgNodes = itemData.dgNodes;
+			for (int i=0; i< dgNodes.Count;i++)
+			{
+				if (dgNodes[i] == null)
+				{
+					indexToRemove.Add(i);
+				}
+			}
+			for (int i = 0; i < indexToRemove.Count; i++) 
+			{
+				dgNodes.RemoveAt(indexToRemove[i]);
 			}
 			//保存位置并清空链接关系
 			foreach (var node in nodes.Select(node => node as DialogueGraphNode))
@@ -200,7 +215,14 @@ namespace RPGCore.Dialogue.Editor
 				}
 			}
 			//保存当前graphview的位置缩放信息
-			editorWindow.CurrentOpenedGroupData.GetOpenedEditorItem().SaveGraphViewPortInfomation(viewTransform.position, viewTransform.scale);
+			itemData.SaveGraphViewPortInfomation(viewTransform.position, viewTransform.scale);
+
+			EditorUtility.SetDirty(editorWindow.CurrentOpenedGroupData);
+			EditorUtility.SetDirty(itemData);
+			AssetDatabase.SaveAssets();
+			AssetDatabase.Refresh();
+
+			DialogueEditorUtility.MakeSureDataLegalization(editorWindow.CurrentOpenedGroupData);
 		}
 
 		public void ClearGraphView()

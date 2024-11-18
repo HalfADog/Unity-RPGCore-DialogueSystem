@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
 namespace RPGCore.Dialogue.Runtime
 {
 	/// <summary>
@@ -17,6 +16,7 @@ namespace RPGCore.Dialogue.Runtime
         Random,//随机选择节点
         Action,//动作节点
         Flow,//流程控制
+        Setting//设置节点
     }
     [Serializable]
     public class DgNodeBase : ScriptableObject,IDgNode
@@ -91,5 +91,25 @@ namespace RPGCore.Dialogue.Runtime
 		{
 			return this.ConvertTo<T>();
 		}
+
+        /// <summary>
+        /// 初始化下一个节点的列表
+        /// </summary>
+        public void InitializeNextNodes(List<DgNodeBase> allNodes) 
+        {
+            for (int i = 0; i < nextNodesGuid.Count; i++) 
+            {
+                string guid = nextNodesGuid[i];
+                DgNodeBase node = allNodes.Find(n=> n.Guid == guid);
+                if (node != null) 
+                {
+                    NextNodes.Add(node);
+                }
+                else 
+                {
+                    throw new NullReferenceException("节点数据为空！未找到节点");
+                }
+            }
+        }
 	}
 }

@@ -2,6 +2,7 @@ using RPGCore.Dialogue.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -133,7 +134,7 @@ namespace RPGCore.Dialogue.Editor
 			//对话框
 			dialogueWindow = new EditorDialogueWindow(dialogueWindowPanel, "DialogueWindow");
 			//设置控件回调函数
-			saveBtn.RegisterCallback<ClickEvent>(ce => { graphView.SaveNodeGraphView(); AssetDatabase.SaveAssets(); });
+			saveBtn.RegisterCallback<ClickEvent>(ce => { graphView.SaveNodeGraphView(); AssetDatabase.SaveAssets(); AssetDatabase.Refresh(); });
 			openBtn.RegisterCallback<ClickEvent>(ce => { OpenGroup(); });
 			createGroupBtn.RegisterCallback<ClickEvent>(ce => { CreateNewGroup(); });
 			createItemBtn.RegisterCallback<ClickEvent>(ce => { CreateNewItem(); });
@@ -158,15 +159,6 @@ namespace RPGCore.Dialogue.Editor
 				AutoSave();
 			}
 		}
-
-		private void OnDisable()
-		{
-			graphView.SaveNodeGraphView();
-			AssetDatabase.SaveAssets();
-			AssetDatabase.Refresh();
-			windowInstance = null;
-		}
-
 		/// <summary>
 		/// 初始化编辑器
 		/// </summary>
@@ -206,9 +198,10 @@ namespace RPGCore.Dialogue.Editor
 			while (nodeProperty.NextVisible(false))
 			{
 				if (ignorePropertiesName.Contains(nodeProperty.name)) continue;
-
 				EditorInspectorItem inspectorItem = new EditorInspectorItem();
-				inspectorItem.FieldNameLabel.text = nodeProperty.name;
+				var filedinfo = nodeData.GetType().GetField(nodeProperty.name);
+				var attribute = filedinfo?.GetCustomAttribute<DialoguePropertyAttribute>();
+				inspectorItem.FieldNameLabel.text = attribute?.PropertyName ?? nodeProperty.name;
 				inspectorItem.Field.bindingPath = nodeProperty.propertyPath;
 				inspectorItem.Field.SetEnabled(nodeProperty.name != "type");
 				inspectorItem.Bind(serializedNode);

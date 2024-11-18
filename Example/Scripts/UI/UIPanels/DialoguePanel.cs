@@ -39,9 +39,9 @@ public class DialoguePanel : BasePanel
 	public void AddChoiceItem(string content)
 	{
 		GameObject ci = GameObject.Instantiate(choiceItem);
-		ci.GetComponent<Button>().onClick.AddListener(()=> { OnChoiceSelected?.Invoke(ci.GetComponent<ChoiceItem>().Id); });
+		ci.GetComponent<Button>().onClick.AddListener(()=> { OnChoiceSelected?.Invoke(ci.GetComponent<RPGCore.ChoiceItem>().Id); });
 		ci.GetComponent<TMP_Text>().text = content;
-		ci.GetComponent<ChoiceItem>().Id = choiceCount;
+		ci.GetComponent<RPGCore.ChoiceItem>().Id = choiceCount;
 		ci.transform.SetParent(choicesContainer.transform);
 		choiceCount++;
 	}

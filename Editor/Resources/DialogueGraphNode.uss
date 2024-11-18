@@ -141,3 +141,19 @@
 .flow-node #node-border #contents #top #input .port {
     --port-color: rgb(32, 133, 135);
 }
+
+.setting-node #title {
+    background-color: rgba(255, 91, 0, 0.78);
+}
+
+.setting-node #title-label {
+    color: rgb(255, 255, 255);
+}
+
+.setting-node #contents {
+    background-color: rgba(32, 80, 51, 0.78);
+}
+
+.setting-node #node-border #contents #top #output .port {
+    --port-color: rgb(32, 135, 51);
+}

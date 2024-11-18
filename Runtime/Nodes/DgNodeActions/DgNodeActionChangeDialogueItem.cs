@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RPGCore.Dialogue.Runtime
 {
-    [DialogueNode(Path = "Action/Change Dialogue Item")]
+    [DialogueNode(Path = "Example/Action/Change Dialogue Item")]
     public class DgNodeActionChangeDialogueItem : DgNodeActionBase
     {
         public string ItemName;

@@ -9,8 +9,8 @@ namespace RPGCore.Dialogue.Editor
 	public static class DialogueEditorUtility
 	{
 		//资源保存的路径
-		private static readonly string dialogueItemSavePath = "Assets/Scripts/Unity-RPGCore-DialogueSystem/Example/ScriptableObjects/Dialogue/Items/";
-		private static readonly string dialogueGroupSavePath = "Assets/Scripts/Unity-RPGCore-DialogueSystem/Example/ScriptableObjects/Dialogue/Groups/";
+		private static readonly string dialogueItemSavePath = "Assets/Datas/Dialogue/Item/";
+		private static readonly string dialogueGroupSavePath = "Assets/Datas/Dialogue/Group/";
 		public static bool DialogueGroupExist(string groupName)
 		{
 			string[] result = AssetDatabase.FindAssets("t:DialogueGroupDataSO", new string[] { dialogueGroupSavePath });
@@ -47,6 +47,8 @@ namespace RPGCore.Dialogue.Editor
 			groupData.dialogueItems.Add(itemData);
 			AssetDatabase.CreateAsset(groupData, dialogueGroupSavePath + groupData.name + ".asset");
 			AssetDatabase.CreateAsset(itemData, dialogueItemSavePath + itemData.name + ".asset");
+			EditorUtility.SetDirty(groupData);
+			EditorUtility.SetDirty(itemData);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
 			return groupData;
@@ -59,6 +61,7 @@ namespace RPGCore.Dialogue.Editor
 			itemData.Description = description;
 			groupData.dialogueItems.Add(itemData);
 			AssetDatabase.CreateAsset(itemData, dialogueItemSavePath + itemData.name + ".asset");
+			EditorUtility.SetDirty(itemData);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
 			return itemData;
@@ -77,6 +80,7 @@ namespace RPGCore.Dialogue.Editor
 			DialogueItemDataSO itemDataSO = groupData.GetOpenedEditorItem();
 			itemDataSO.dgNodes.Add(node);
 			AssetDatabase.AddObjectToAsset(node, itemDataSO);
+			EditorUtility.SetDirty(node);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
 			Debug.Log($"Create a {type.ToString()} node.");
@@ -90,6 +94,7 @@ namespace RPGCore.Dialogue.Editor
 				groupData.dialogueItems.Remove(itemData);
 				Debug.Log($"Delete item data : {itemData.name}");
 				AssetDatabase.DeleteAsset(dialogueItemSavePath + itemData.name + ".asset");
+				EditorUtility.SetDirty(groupData);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 			}
@@ -100,6 +105,23 @@ namespace RPGCore.Dialogue.Editor
 			AssetDatabase.RemoveObjectFromAsset(nodeToDelete);
 			AssetDatabase.SaveAssets();
 			AssetDatabase.Refresh();
+		}
+
+		public static void MakeSureDataLegalization(DialogueGroupDataSO groupDataSO) 
+		{
+			for (int i = 0; i < groupDataSO.dialogueItems.Count; i++) 
+			{
+				var item = groupDataSO.dialogueItems[i];
+				//Debug.Log(AssetDatabase.GetAssetPath(item));
+				UnityEngine.Object[] objects = AssetDatabase.LoadAllAssetRepresentationsAtPath(AssetDatabase.GetAssetPath(item));
+				for (int j = 0; j < objects.Length; j++) 
+				{
+					if (objects[j] == null) 
+					{
+						throw new Exception("出现了空的资源 请手动删除！");
+					}
+				}
+			}
 		}
 	}
 }
